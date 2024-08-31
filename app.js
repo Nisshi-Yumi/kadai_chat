@@ -4,14 +4,14 @@ import { getDatabase, ref, push, set, onChildAdded } from "https://www.gstatic.c
 
 // Firebaseの設定
 const firebaseConfig = {
-    apiKey: "AIzaSyBGQjlkmtqMNyect67dS8tzM8WBM6E1lfY",
-    authDomain: "sample-d7aab.firebaseapp.com",
-    projectId: "sample-d7aab",
-    storageBucket: "sample-d7aab.appspot.com",
-    messagingSenderId: "747403752416",
-    appId: "1:747403752416:web:40aa1594ece600c853f185",
-    measurementId: "G-79ZNFPPTE8",
-    databaseURL: "https://sample-d7aab-default-rtdb.firebaseio.com/"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: "8",
+    databaseURL: "/"
 };
 
 
