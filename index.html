@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>気象予報士アカデミー受講生お悩み相談チャット</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1><p>気象予報士アカデミー受講生</p>
+        <p>お悩み相談チャット</p></h1>
+    <h2><p>みんなのの質問・相談にルーク先生が答えるよ</p>
+        なんでも先生に聞いてください。</h2>
+
+    <!-- チューター先生の応答アイコン -->
+    <div id="tutor-container">
+        <img id="tutor-image" src="img/luke1.png" alt="チューター先生のアイコン">
+    </div>
+
+    <!-- 受講生アイコン選択 -->
+    <div id="student-icon-selection">
+        <p>今日の気分で下の3つのアイコンから1つ選択してね:</p>
+        <div class="icon-option">
+            <img class="student-icon" src="img/ham.png" alt="必死で勉強中" data-icon="ham.png">
+            <p>ちょっとだけ勉強中</p>
+        </div>
+        <div class="icon-option">
+            <img class="student-icon" src="img/neko.png" alt="勉強中級者" data-icon="neko.png">
+            <p>1時間は勉強する！</p>
+        </div>
+        <div class="icon-option">
+            <img class="student-icon" src="img/lion.png" alt="勉強猛者" data-icon="lion.png">
+            <p>2時間以上勉強する！</p>
+        </div>
+    </div>
+
+    <div id="subject-button-selection">
+        <p>分野を選んでね</p>
+        <button class="subject-button" data-subject="学科一般">学科一般</button>
+        <button class="subject-button" data-subject="学科専門">学科専門</button>
+        <button class="subject-button" data-subject="実技">実技</button>
+    </div>
+
+    <div id="tutor-response"></div>
+    
+    <div> 名前：<input type="text" id="uname"> </div>
+    <div> 日付：<input type="date" id="date"> </div>
+    <div>
+        <textarea id="text" cols="30" rows="10"></textarea>
+        <button id="send">送信</button>
+        <button id="reset">リセット</button>
+    </div>
+    <div id="output"></div>
+</div>
+
+<script src="app.js" type="module"></script>
+
+</body>
+</html>

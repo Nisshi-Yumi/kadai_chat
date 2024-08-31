@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Firebase_version9_RealtimeDB(G'sACADEMY初学者用サンプル)</title>
+</head>
+<body>
+
+<!-- コンテンツ表示画面 -->
+
+<div>
+    <div> 名前：<input type="text" id="uname"> </div>
+    <div>
+        <textarea id="text" cols="30" rows="10"></textarea>
+        <button id="send">送信</button>
+    </div>
+    <div id="output" style="overflow: auto;height: 300px;"></div>
+</div>
+<!--/ コンテンツ表示画面 -->
+
+
+
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- JQuery -->
+
+
+<!--** 以下Firebase **-->
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved } 
+    from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyBedFumQ3UL1r17HCLRhVPkB3_oqnsFISA",
+    authDomain: "kadai22.firebaseapp.com",
+    projectId: "kadai22",
+    storageBucket: "kadai22.appspot.com",
+    messagingSenderId: "182150402281",
+    appId: "1:182150402281:web:387eaee4dcf02f932ca078"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db  = getDatabase(app);
+    const dbRef =ref(db,"chat")
+
+
+    $("#send").on("click",function(){
+        const msg ={
+         uname : $("#uname").val(),
+         text  : $("#text").val()
+        
+        }
+        const newPostRef = push(dbRef);//ユニークキーを生成........
+        set(newPostRef,msg);
+        });
+
+    onChildAdded(dbRef,function(data){
+        const msg = data.val();
+        const key = data.key;
+        let h ='<p id="'+key+'">';
+            h += msg.uname;
+            h +='<br>';
+            h += '<span contentEditable="true" id="'+key+'_update">'+msg.text+'</span>';   
+            h += '<span class="remove" data-key="'+key+'">"remove"</span>'
+            h +='<p>';
+            $("#output").append(h);
+    });
+        
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
